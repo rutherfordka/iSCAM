@@ -1,13 +1,25 @@
 var searchData=
 [
+  ['n_5fsurvey_5ftype',['n_survey_type',['../structs__i_s_c_a_mdata.html#aea240942edc9ff76a6d95bd4cee0c933',1,'s_iSCAMdata']]],
+  ['nagears',['nAgears',['../structs__i_s_c_a_mdata.html#a5e625f561a237d3c22be87b75c1722f3',1,'s_iSCAMdata']]],
+  ['nanage',['nAnage',['../structs__i_s_c_a_mdata.html#aa1b4319942d05d16dac79d0693b8e48d',1,'s_iSCAMdata']]],
+  ['nanobs',['nAnobs',['../structs__i_s_c_a_mdata.html#a4e81d4b749b99a70118c6cd26d5adc0b',1,'s_iSCAMdata']]],
   ['narea',['nArea',['../structs__i_s_c_a_mdata.html#adfb7f9617cd68f0b1ddc1f538feaf6e6',1,'s_iSCAMdata']]],
+  ['nasage',['nAsage',['../structs__i_s_c_a_mdata.html#a785cc6dc49935494ac2a9493ee0d98bf',1,'s_iSCAMdata']]],
+  ['nctnobs',['nCtNobs',['../structs__i_s_c_a_mdata.html#ab4d6280c2ce4456b6c88a5d563ab3eb4',1,'s_iSCAMdata']]],
   ['nfleet',['nFleet',['../structs__i_s_c_a_mdata.html#a163710511674ad108a45922e0ff15001',1,'s_iSCAMdata']]],
+  ['nfleetindex',['nFleetIndex',['../structs__i_s_c_a_mdata.html#a6ba897880f8a72b9e2758f9620bc21fd',1,'s_iSCAMdata']]],
   ['ngear',['nGear',['../structs__i_s_c_a_mdata.html#a0559b480965f8a4dbe78c86799aa421e',1,'s_iSCAMdata']]],
+  ['nit',['nIt',['../structs__i_s_c_a_mdata.html#af0120875db1dcba0802f9d00a80f8896',1,'s_iSCAMdata']]],
+  ['nitnobs',['nItNobs',['../structs__i_s_c_a_mdata.html#a7ce05904bc0e376464c937467b83a32a',1,'s_iSCAMdata']]],
   ['nnage',['nNage',['../structs__i_s_c_a_mdata.html#ad3fc3f8c88c5db5b937daf174b870fc0',1,'s_iSCAMdata']]],
   ['nnyr',['nNyr',['../structs__i_s_c_a_mdata.html#ac7d34a9d8318e7319e6dc95d376a92f5',1,'s_iSCAMdata']]],
   ['npyr',['nPyr',['../structs__i_s_c_a_mdata.html#a4b3770be8664f821deaa0f97ed0907d8',1,'s_iSCAMdata']]],
   ['nsage',['nSage',['../structs__i_s_c_a_mdata.html#ad3b46480aae0364c13929521c9a4c426',1,'s_iSCAMdata']]],
+  ['nsel_5fblock',['nSel_block',['../structs__i_s_c_a_mvariables.html#a5d2041c4ac48cc18bb056ee50277b059',1,'s_iSCAMvariables']]],
+  ['nsel_5ftype',['nSel_type',['../structs__i_s_c_a_mvariables.html#a836817855ebd5647580723d09be62ca5',1,'s_iSCAMvariables']]],
   ['nsex',['nSex',['../structs__i_s_c_a_mdata.html#a30e3421d491680946012af773ed58600',1,'s_iSCAMdata']]],
   ['nstock',['nStock',['../structs__i_s_c_a_mdata.html#af27be4543ee787ab0621be5be6e4ca4e',1,'s_iSCAMdata']]],
-  ['nsyr',['nSyr',['../structs__i_s_c_a_mdata.html#a7f788c5b4c87820f624d65eb618af357',1,'s_iSCAMdata']]]
+  ['nsyr',['nSyr',['../structs__i_s_c_a_mdata.html#a7f788c5b4c87820f624d65eb618af357',1,'s_iSCAMdata']]],
+  ['nwtnobs',['nWtNobs',['../structs__i_s_c_a_mdata.html#a7d68110a7a75c384b1161d616553c000',1,'s_iSCAMdata']]]
 ];

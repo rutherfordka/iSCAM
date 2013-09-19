@@ -1,8 +1,9 @@
 var searchData=
 [
   ['generatestockassessmentdata',['generateStockAssessmentData',['../class_operating_model.html#ae8b7c530652159ac35d83a4e455b4ff6',1,'OperatingModel']]],
-  ['get_5ffmsy',['get_fmsy',['../class_msy.html#a78de637cea0563b98c34f517efb61ae4',1,'Msy']]],
+  ['get_5ffmsy',['get_fmsy',['../class_msy.html#a78de637cea0563b98c34f517efb61ae4',1,'Msy::get_fmsy(dvector &amp;fe)'],['../class_msy.html#a339a5f824df501608028d2edf4034a85',1,'Msy::get_fmsy(dvector &amp;fe, dvector &amp;ak)']]],
   ['get_5fft',['get_ft',['../class_baranov_catch_equation.html#a3caa920e90e428e75a7aea0d9a66ae25',1,'BaranovCatchEquation']]],
+  ['get_5fx',['get_x',['../class_selex.html#af815d9d1a26751f5ad8e54eae42e7c0b',1,'Selex']]],
   ['getbe',['getBe',['../class_msy.html#a6ea4dcebe7f6fb01f99881faacdaa433',1,'Msy']]],
   ['getbi',['getBi',['../class_msy.html#aed7cae6e678678f2346d33c45c62cfae',1,'Msy']]],
   ['getbmsy',['getBmsy',['../class_msy.html#a62b1ef59281a80db10e5c7c015e2413d',1,'Msy']]],

@@ -3,6 +3,7 @@ var NAVTREE =
   [ "iSCAM", "index.html", [
     [ "About", "p_about.html", null ],
     [ "Online Manual", "i_s_c_a_m.html", "i_s_c_a_m" ],
+    [ "Todo List", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],

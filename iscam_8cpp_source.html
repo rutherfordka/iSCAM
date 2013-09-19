@@ -964,7 +964,7 @@ $(document).ready(function(){initNavTree('iscam_8cpp_source.html','');});
 <div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    {</div>
 <div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;        initParameters();</div>
 <div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;        </div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;        simulationModel(rseed);</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;        <a class="code" href="classmodel__parameters.html#a2c65bf18cb86d9337271f2cbe480baf3">simulationModel</a>(rseed);</div>
 <div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    }</div>
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="keywordflow">if</span>(verbose) cout&lt;&lt;<span class="stringliteral">&quot;||-- END OF PRELIMINARY_CALCS_SECTION --||&quot;</span>&lt;&lt;endl;</div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    </div>
@@ -2434,44 +2434,9 @@ $(document).ready(function(){initNavTree('iscam_8cpp_source.html','');});
 <div class="line"><a name="l02327"></a><span class="lineno"> 2327</span>&#160;  }</div>
 <div class="line"><a name="l02328"></a><span class="lineno"> 2328</span>&#160;}</div>
 <div class="line"><a name="l02329"></a><span class="lineno"> 2329</span>&#160;</div>
-<div class="line"><a name="l02330"></a><span class="lineno"> 2330</span>&#160;<span class="keywordtype">void</span> model_parameters::simulationModel(<span class="keyword">const</span> <span class="keywordtype">long</span>&amp; seed)</div>
+<div class="line"><a name="l02330"></a><span class="lineno"><a class="code" href="classmodel__parameters.html#a2c65bf18cb86d9337271f2cbe480baf3"> 2330</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmodel__parameters.html#a2c65bf18cb86d9337271f2cbe480baf3">model_parameters::simulationModel</a>(<span class="keyword">const</span> <span class="keywordtype">long</span>&amp; seed)</div>
 <div class="line"><a name="l02331"></a><span class="lineno"> 2331</span>&#160;{</div>
 <div class="line"><a name="l02332"></a><span class="lineno"> 2332</span>&#160;  {</div>
-<div class="line"><a name="l02333"></a><span class="lineno"> 2333</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l02334"></a><span class="lineno"> 2334</span>&#160;<span class="comment">    Purpose:  This routine gets called from the PRELIMINARY_CALCS_SECTION if the </span></div>
-<div class="line"><a name="l02335"></a><span class="lineno"> 2335</span>&#160;<span class="comment">              user has specified the -sim command line option.  The random seed</span></div>
-<div class="line"><a name="l02336"></a><span class="lineno"> 2336</span>&#160;<span class="comment">              is specifed at the command line.</span></div>
-<div class="line"><a name="l02337"></a><span class="lineno"> 2337</span>&#160;<span class="comment">    Author: Steven Martell</span></div>
-<div class="line"><a name="l02338"></a><span class="lineno"> 2338</span>&#160;<span class="comment">    Arguments:</span></div>
-<div class="line"><a name="l02339"></a><span class="lineno"> 2339</span>&#160;<span class="comment">        seed -&gt; a random seed for generating a unique, repeatable, sequence of </span></div>
-<div class="line"><a name="l02340"></a><span class="lineno"> 2340</span>&#160;<span class="comment">                random numbers to be used as observation and process errors.</span></div>
-<div class="line"><a name="l02341"></a><span class="lineno"> 2341</span>&#160;<span class="comment">    NOTES:</span></div>
-<div class="line"><a name="l02342"></a><span class="lineno"> 2342</span>&#160;<span class="comment">        - This routine will over-write the observations in memory</span></div>
-<div class="line"><a name="l02343"></a><span class="lineno"> 2343</span>&#160;<span class="comment">          with simulated data, where the true parameter values are</span></div>
-<div class="line"><a name="l02344"></a><span class="lineno"> 2344</span>&#160;<span class="comment">          the initial values.  Change the standard deviations of the </span></div>
-<div class="line"><a name="l02345"></a><span class="lineno"> 2345</span>&#160;<span class="comment">          random number vectors epsilon (observation error) or </span></div>
-<div class="line"><a name="l02346"></a><span class="lineno"> 2346</span>&#160;<span class="comment">          recruitment devs wt (process error).</span></div>
-<div class="line"><a name="l02347"></a><span class="lineno"> 2347</span>&#160;<span class="comment">        - At the end of DATA_SECTION nyrs is modified by retro_yrs if -retro.</span></div>
-<div class="line"><a name="l02348"></a><span class="lineno"> 2348</span>&#160;<span class="comment">        - Add back the retro_yrs to ensure same random number sequence for </span></div>
-<div class="line"><a name="l02349"></a><span class="lineno"> 2349</span>&#160;<span class="comment">          observation errors.</span></div>
-<div class="line"><a name="l02350"></a><span class="lineno"> 2350</span>&#160;<span class="comment">    PSUEDOCODE:</span></div>
-<div class="line"><a name="l02351"></a><span class="lineno"> 2351</span>&#160;<span class="comment">        1)  calculate selectivities to be used in the simulations.</span></div>
-<div class="line"><a name="l02352"></a><span class="lineno"> 2352</span>&#160;<span class="comment">        2)  calculate mortality rates (M), F is conditioned on catch.</span></div>
-<div class="line"><a name="l02353"></a><span class="lineno"> 2353</span>&#160;<span class="comment">        3)  generate random numbers for observation &amp; process errors.</span></div>
-<div class="line"><a name="l02354"></a><span class="lineno"> 2354</span>&#160;<span class="comment">        4)  calculate survivorship and stock-recruitment pars based on average M &amp; fec.</span></div>
-<div class="line"><a name="l02355"></a><span class="lineno"> 2355</span>&#160;<span class="comment">        5)  initialize state variables.</span></div>
-<div class="line"><a name="l02356"></a><span class="lineno"> 2356</span>&#160;<span class="comment">        6)  population dynamics with F conditioned on catch.</span></div>
-<div class="line"><a name="l02357"></a><span class="lineno"> 2357</span>&#160;<span class="comment">        7)  compute catch-at-age samples.</span></div>
-<div class="line"><a name="l02358"></a><span class="lineno"> 2358</span>&#160;<span class="comment">        8)  compute total catch.</span></div>
-<div class="line"><a name="l02359"></a><span class="lineno"> 2359</span>&#160;<span class="comment">        9)  compute the relative abundance indices.</span></div>
-<div class="line"><a name="l02360"></a><span class="lineno"> 2360</span>&#160;<span class="comment">        10) write simulated data to file.</span></div>
-<div class="line"><a name="l02361"></a><span class="lineno"> 2361</span>&#160;<span class="comment">    TODO list:</span></div>
-<div class="line"><a name="l02362"></a><span class="lineno"> 2362</span>&#160;<span class="comment">    [] - March 9, 2013.  Fix simulation model to generate consistent data when </span></div>
-<div class="line"><a name="l02363"></a><span class="lineno"> 2363</span>&#160;<span class="comment">          doing retrospective analyses on simulated datasets.</span></div>
-<div class="line"><a name="l02364"></a><span class="lineno"> 2364</span>&#160;<span class="comment">    [ ] - TODO: Stock-Recruitment model.</span></div>
-<div class="line"><a name="l02365"></a><span class="lineno"> 2365</span>&#160;<span class="comment">    [ ] - TODO: switch statement for catch-type to get Fishing mortality rate.</span></div>
-<div class="line"><a name="l02366"></a><span class="lineno"> 2366</span>&#160;<span class="comment">    [ ] </span></div>
-<div class="line"><a name="l02367"></a><span class="lineno"> 2367</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l02368"></a><span class="lineno"> 2368</span>&#160;    cout&lt;&lt;global_parfile&lt;&lt;endl;</div>
 <div class="line"><a name="l02369"></a><span class="lineno"> 2369</span>&#160;    <span class="keywordtype">bool</span> pinfile = 0;</div>
 <div class="line"><a name="l02370"></a><span class="lineno"> 2370</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;___________________________________________________\n&quot;</span>&lt;&lt;endl;</div>
@@ -2710,7 +2675,7 @@ $(document).ready(function(){initNavTree('iscam_8cpp_source.html','');});
 <div class="line"><a name="l02603"></a><span class="lineno"> 2603</span>&#160;    <span class="keywordtype">int</span> kk,aa,AA;</div>
 <div class="line"><a name="l02604"></a><span class="lineno"> 2604</span>&#160;    <span class="keywordtype">double</span> age_tau = value(sig);</div>
 <div class="line"><a name="l02605"></a><span class="lineno"> 2605</span>&#160;    calcAgeComposition();</div>
-<div class="line"><a name="l02606"></a><span class="lineno"> 2606</span>&#160;    for(kk=1;kk&lt;=nAgears;kk++)</div>
+<div class="line"><a name="l02606"></a><span class="lineno"> 2606</span>&#160;    <span class="keywordflow">for</span>(kk=1;kk&lt;=nAgears;kk++)</div>
 <div class="line"><a name="l02607"></a><span class="lineno"> 2607</span>&#160;    {</div>
 <div class="line"><a name="l02608"></a><span class="lineno"> 2608</span>&#160;        aa = n_A_sage(kk);</div>
 <div class="line"><a name="l02609"></a><span class="lineno"> 2609</span>&#160;        AA = n_A_nage(kk);</div>
@@ -3083,30 +3048,30 @@ $(document).ready(function(){initNavTree('iscam_8cpp_source.html','');});
 <div class="line"><a name="l02976"></a><span class="lineno"> 2976</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#ad3fc3f8c88c5db5b937daf174b870fc0" title="Terminal plus group age class (years) ">nNage</a>       = nage;</div>
 <div class="line"><a name="l02977"></a><span class="lineno"> 2977</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a0559b480965f8a4dbe78c86799aa421e" title="Number of distinct fleets incl. survey vessels. ">nGear</a>       = ngear;</div>
 <div class="line"><a name="l02978"></a><span class="lineno"> 2978</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a163710511674ad108a45922e0ff15001" title="Number of fishing fleets with allocation &gt; 0. ">nFleet</a>      = nfleet;</div>
-<div class="line"><a name="l02979"></a><span class="lineno"> 2979</span>&#160;    s_mseData.nFleetIndex = nFleetIndex;</div>
-<div class="line"><a name="l02980"></a><span class="lineno"> 2980</span>&#160;    s_mseData.dAllocation = dAllocation;</div>
-<div class="line"><a name="l02981"></a><span class="lineno"> 2981</span>&#160;    s_mseData.d_linf      = d_linf;</div>
-<div class="line"><a name="l02982"></a><span class="lineno"> 2982</span>&#160;    s_mseData.d_vonbk     = d_vonbk;</div>
-<div class="line"><a name="l02983"></a><span class="lineno"> 2983</span>&#160;    s_mseData.d_to        = d_to;</div>
-<div class="line"><a name="l02984"></a><span class="lineno"> 2984</span>&#160;    s_mseData.d_a         = d_a;</div>
-<div class="line"><a name="l02985"></a><span class="lineno"> 2985</span>&#160;    s_mseData.d_b         = d_b;</div>
-<div class="line"><a name="l02986"></a><span class="lineno"> 2986</span>&#160;    s_mseData.d_ah        = d_ah;</div>
-<div class="line"><a name="l02987"></a><span class="lineno"> 2987</span>&#160;    s_mseData.d_gh        = d_gh;</div>
-<div class="line"><a name="l02988"></a><span class="lineno"> 2988</span>&#160;    s_mseData.nCtNobs     = nCtNobs;</div>
-<div class="line"><a name="l02989"></a><span class="lineno"> 2989</span>&#160;    s_mseData.dCatchData  = dCatchData;</div>
-<div class="line"><a name="l02990"></a><span class="lineno"> 2990</span>&#160;    s_mseData.nIt         = nItNobs;</div>
-<div class="line"><a name="l02991"></a><span class="lineno"> 2991</span>&#160;    s_mseData.nItNobs     = n_it_nobs;</div>
-<div class="line"><a name="l02992"></a><span class="lineno"> 2992</span>&#160;    s_mseData.n_survey_type = n_survey_type;</div>
-<div class="line"><a name="l02993"></a><span class="lineno"> 2993</span>&#160;    s_mseData.dSurveyData = &amp;d3_survey_data;</div>
-<div class="line"><a name="l02994"></a><span class="lineno"> 2994</span>&#160;    s_mseData.nAgears     = nAgears;</div>
-<div class="line"><a name="l02995"></a><span class="lineno"> 2995</span>&#160;    s_mseData.nAnobs      = n_A_nobs;</div>
-<div class="line"><a name="l02996"></a><span class="lineno"> 2996</span>&#160;    s_mseData.nAsage      = n_A_sage;</div>
-<div class="line"><a name="l02997"></a><span class="lineno"> 2997</span>&#160;    s_mseData.nAnage      = n_A_nage;</div>
-<div class="line"><a name="l02998"></a><span class="lineno"> 2998</span>&#160;    s_mseData.dA          = &amp;d3_A;</div>
-<div class="line"><a name="l02999"></a><span class="lineno"> 2999</span>&#160;    s_mseData.nWtNobs     = nWtNobs;</div>
-<div class="line"><a name="l03000"></a><span class="lineno"> 3000</span>&#160;    s_mseData.d3_wt_avg     = &amp;d3_wt_avg;</div>
-<div class="line"><a name="l03001"></a><span class="lineno"> 3001</span>&#160;    s_mseData.d3_wt_mat     = &amp;d3_wt_mat;</div>
-<div class="line"><a name="l03002"></a><span class="lineno"> 3002</span>&#160;    s_mseData.d_iscamCntrl        = d_iscamCntrl;</div>
+<div class="line"><a name="l02979"></a><span class="lineno"> 2979</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a6ba897880f8a72b9e2758f9620bc21fd" title="test ">nFleetIndex</a> = nFleetIndex;</div>
+<div class="line"><a name="l02980"></a><span class="lineno"> 2980</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a1b60851462eb2f32f469bd8ded5883f1" title="test ">dAllocation</a> = dAllocation;</div>
+<div class="line"><a name="l02981"></a><span class="lineno"> 2981</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a6867d64980f159c7a317f2029b1c3555" title="test ">d_linf</a>      = d_linf;</div>
+<div class="line"><a name="l02982"></a><span class="lineno"> 2982</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a81f6f10a074217292c0060b7d29848a2" title="test ">d_vonbk</a>     = d_vonbk;</div>
+<div class="line"><a name="l02983"></a><span class="lineno"> 2983</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a2651dc8f10ba5d7e6b91f1976748ca00" title="test ">d_to</a>        = d_to;</div>
+<div class="line"><a name="l02984"></a><span class="lineno"> 2984</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#aba9a3e21f01e9f30cb825e5f2f79771d" title="test ">d_a</a>         = d_a;</div>
+<div class="line"><a name="l02985"></a><span class="lineno"> 2985</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#ac691e16959add8a09d40e050bd9d2a99" title="test ">d_b</a>         = d_b;</div>
+<div class="line"><a name="l02986"></a><span class="lineno"> 2986</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a278bd77cfe6cfc3a5d69364ebb384474" title="test ">d_ah</a>        = d_ah;</div>
+<div class="line"><a name="l02987"></a><span class="lineno"> 2987</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#aacf1fcc14734c37067ece830322f30d6" title="test ">d_gh</a>        = d_gh;</div>
+<div class="line"><a name="l02988"></a><span class="lineno"> 2988</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#ab4d6280c2ce4456b6c88a5d563ab3eb4" title="test ">nCtNobs</a>     = nCtNobs;</div>
+<div class="line"><a name="l02989"></a><span class="lineno"> 2989</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a42a5880d83a6a90b0b8291a72b85f763" title="test ">dCatchData</a>  = dCatchData;</div>
+<div class="line"><a name="l02990"></a><span class="lineno"> 2990</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#af0120875db1dcba0802f9d00a80f8896" title="test ">nIt</a>         = nItNobs;</div>
+<div class="line"><a name="l02991"></a><span class="lineno"> 2991</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a7ce05904bc0e376464c937467b83a32a" title="test ">nItNobs</a>     = n_it_nobs;</div>
+<div class="line"><a name="l02992"></a><span class="lineno"> 2992</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#aea240942edc9ff76a6d95bd4cee0c933" title="test ">n_survey_type</a> = n_survey_type;</div>
+<div class="line"><a name="l02993"></a><span class="lineno"> 2993</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#abe7dfcce81d946aa9a003403c2667e3d" title="test ">dSurveyData</a> = &amp;d3_survey_data;</div>
+<div class="line"><a name="l02994"></a><span class="lineno"> 2994</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a5e625f561a237d3c22be87b75c1722f3" title="test ">nAgears</a>     = nAgears;</div>
+<div class="line"><a name="l02995"></a><span class="lineno"> 2995</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a4e81d4b749b99a70118c6cd26d5adc0b" title="test ">nAnobs</a>      = n_A_nobs;</div>
+<div class="line"><a name="l02996"></a><span class="lineno"> 2996</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a785cc6dc49935494ac2a9493ee0d98bf" title="test ">nAsage</a>      = n_A_sage;</div>
+<div class="line"><a name="l02997"></a><span class="lineno"> 2997</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#aa1b4319942d05d16dac79d0693b8e48d" title="test ">nAnage</a>      = n_A_nage;</div>
+<div class="line"><a name="l02998"></a><span class="lineno"> 2998</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a35138540096a64115a49fed9aaee849f" title="test ">dA</a>          = &amp;d3_A;</div>
+<div class="line"><a name="l02999"></a><span class="lineno"> 2999</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a7d68110a7a75c384b1161d616553c000" title="test ">nWtNobs</a>     = nWtNobs;</div>
+<div class="line"><a name="l03000"></a><span class="lineno"> 3000</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#aa9f55e2589b7978e0cc10bd2ce2d4831" title="test ">d3_wt_avg</a>     = &amp;d3_wt_avg;</div>
+<div class="line"><a name="l03001"></a><span class="lineno"> 3001</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a2fba19f1c9ef04119a3476a86c910a0d" title="test ">d3_wt_mat</a>     = &amp;d3_wt_mat;</div>
+<div class="line"><a name="l03002"></a><span class="lineno"> 3002</span>&#160;    s_mseData.<a class="code" href="structs__i_s_c_a_mdata.html#a03ff0d38aef6e2f6ffdd449982af144d" title="test ">d_iscamCntrl</a>        = d_iscamCntrl;</div>
 <div class="line"><a name="l03003"></a><span class="lineno"> 3003</span>&#160;    <span class="comment">/* SCENARIO PARAMETERS */</span></div>
 <div class="line"><a name="l03004"></a><span class="lineno"> 3004</span>&#160;    d3_array d3_selpar(1,ngear,1,jsel_npar,1,isel_npar);</div>
 <div class="line"><a name="l03005"></a><span class="lineno"> 3005</span>&#160;    d3_array d3_M(1,n_ags,syr,nyr,sage,nage);</div>
@@ -3124,23 +3089,23 @@ $(document).ready(function(){initNavTree('iscam_8cpp_source.html','');});
 <div class="line"><a name="l03017"></a><span class="lineno"> 3017</span>&#160;        d3_S(g) = value(S(g));</div>
 <div class="line"><a name="l03018"></a><span class="lineno"> 3018</span>&#160;        d3_ft(g) = value(ft(g));</div>
 <div class="line"><a name="l03019"></a><span class="lineno"> 3019</span>&#160;    }</div>
-<div class="line"><a name="l03020"></a><span class="lineno"> 3020</span>&#160;    s_mseVars.d_log_ro        = value(theta(1));</div>
-<div class="line"><a name="l03021"></a><span class="lineno"> 3021</span>&#160;    s_mseVars.d_steepness     = value(theta(2));</div>
-<div class="line"><a name="l03022"></a><span class="lineno"> 3022</span>&#160;    s_mseVars.d_log_m         = value(theta(3));</div>
-<div class="line"><a name="l03023"></a><span class="lineno"> 3023</span>&#160;    s_mseVars.d_log_rbar      = value(theta(4));</div>
-<div class="line"><a name="l03024"></a><span class="lineno"> 3024</span>&#160;    s_mseVars.d_log_rinit     = value(theta(5));</div>
-<div class="line"><a name="l03025"></a><span class="lineno"> 3025</span>&#160;    s_mseVars.d_rho           = value(theta(6));</div>
-<div class="line"><a name="l03026"></a><span class="lineno"> 3026</span>&#160;    s_mseVars.d_varphi        = value(theta(7));</div>
-<div class="line"><a name="l03027"></a><span class="lineno"> 3027</span>&#160;    s_mseVars.dLog_M_devs     = value(log_m_devs);</div>
-<div class="line"><a name="l03028"></a><span class="lineno"> 3028</span>&#160;    s_mseVars.dLog_Rbar_devs  = value(log_rec_devs);</div>
-<div class="line"><a name="l03029"></a><span class="lineno"> 3029</span>&#160;    s_mseVars.dLog_Rinit_devs = value(init_log_rec_devs);</div>
-<div class="line"><a name="l03030"></a><span class="lineno"> 3030</span>&#160;    s_mseVars.nSel_type       = isel_type;</div>
-<div class="line"><a name="l03031"></a><span class="lineno"> 3031</span>&#160;    s_mseVars.nSel_block      = sel_blocks;</div>
-<div class="line"><a name="l03032"></a><span class="lineno"> 3032</span>&#160;    s_mseVars.dSelPars        = &amp;d3_selpar;</div>
-<div class="line"><a name="l03033"></a><span class="lineno"> 3033</span>&#160;    s_mseVars.d4_log_sel      = &amp;d4_log_sel;</div>
-<div class="line"><a name="l03034"></a><span class="lineno"> 3034</span>&#160;    s_mseVars.d3_Ft           = &amp;d3_ft;</div>
-<div class="line"><a name="l03035"></a><span class="lineno"> 3035</span>&#160;    s_mseVars.d3_Mt           = &amp;d3_M;</div>
-<div class="line"><a name="l03036"></a><span class="lineno"> 3036</span>&#160;    s_mseVars.d3_St           = &amp;d3_S;</div>
+<div class="line"><a name="l03020"></a><span class="lineno"> 3020</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#ac2dc9244e9be04504cadde9a27b03d41" title="Equilibrium unfished recruitment. ">d_log_ro</a>        = value(theta(1));</div>
+<div class="line"><a name="l03021"></a><span class="lineno"> 3021</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a1bcd1f9d6e86d72d9478276a162ed98b" title="Steepness of the stock-recruitment relationship. ">d_steepness</a>     = value(theta(2));</div>
+<div class="line"><a name="l03022"></a><span class="lineno"> 3022</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a486515fd93fc5be6d0ab348d2e2e4db1" title="log of the instantaneous natural mortality rate ">d_log_m</a>         = value(theta(3));</div>
+<div class="line"><a name="l03023"></a><span class="lineno"> 3023</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#af3f120376aba11de126654b67df2108a" title="Annaul average recruitment. ">d_log_rbar</a>      = value(theta(4));</div>
+<div class="line"><a name="l03024"></a><span class="lineno"> 3024</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#ae78f1c957d31c2ef7c0f6c360a8f2509" title="Initial average recruitment. ">d_log_rinit</a>     = value(theta(5));</div>
+<div class="line"><a name="l03025"></a><span class="lineno"> 3025</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#aed037be0a1e0c8d14a0df4009b552b5d" title="Proportion of variance due to observation error. ">d_rho</a>           = value(theta(6));</div>
+<div class="line"><a name="l03026"></a><span class="lineno"> 3026</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a58e42c4d6a6c5441e98c4b21353184c7" title="Total precision (1/variance) ">d_varphi</a>        = value(theta(7));</div>
+<div class="line"><a name="l03027"></a><span class="lineno"> 3027</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#aa3587a67e336df0677d1a4cc700e4dd2" title="Annual deviates in natural mortality. ">dLog_M_devs</a>     = value(log_m_devs);</div>
+<div class="line"><a name="l03028"></a><span class="lineno"> 3028</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a5e6e5ecc4ad74f33689c3bf330dc0e37" title="Annual recruitment deviates. ">dLog_Rbar_devs</a>  = value(log_rec_devs);</div>
+<div class="line"><a name="l03029"></a><span class="lineno"> 3029</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#afd4174c79974371cdfd22f5c7393666a" title="Initial recruitment deviates. ">dLog_Rinit_devs</a> = value(init_log_rec_devs);</div>
+<div class="line"><a name="l03030"></a><span class="lineno"> 3030</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a836817855ebd5647580723d09be62ca5" title="Type of selectivity function. ">nSel_type</a>       = isel_type;</div>
+<div class="line"><a name="l03031"></a><span class="lineno"> 3031</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a5d2041c4ac48cc18bb056ee50277b059" title="Number of selectivity blocks. ">nSel_block</a>      = sel_blocks;</div>
+<div class="line"><a name="l03032"></a><span class="lineno"> 3032</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#ac11353db2373336c011a6539c9e09395" title="Selectivity parameters. ">dSelPars</a>        = &amp;d3_selpar;</div>
+<div class="line"><a name="l03033"></a><span class="lineno"> 3033</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a2b650dc5726f485895358e8f21c344fa" title="Selectivity coefficients. ">d4_log_sel</a>      = &amp;d4_log_sel;</div>
+<div class="line"><a name="l03034"></a><span class="lineno"> 3034</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a94e28b815915d8d9ea92ba036f9fc2c8" title="Annual instantaneous fishing mortality rate. ">d3_Ft</a>           = &amp;d3_ft;</div>
+<div class="line"><a name="l03035"></a><span class="lineno"> 3035</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a4e3937d645b3b0d3367eaa77d5804147" title="Annual instantaneous natural mortality rate. ">d3_Mt</a>           = &amp;d3_M;</div>
+<div class="line"><a name="l03036"></a><span class="lineno"> 3036</span>&#160;    s_mseVars.<a class="code" href="structs__i_s_c_a_mvariables.html#a3a297dc7b308cb93d843768361403cfb" title="Annual survival rate. ">d3_St</a>           = &amp;d3_S;</div>
 <div class="line"><a name="l03037"></a><span class="lineno"> 3037</span>&#160;    <span class="comment">// Instantiate the Operating Model Class</span></div>
 <div class="line"><a name="l03038"></a><span class="lineno"> 3038</span>&#160;    <span class="comment">//OperatingModel om(s_mseData,s_mseVars);</span></div>
 <div class="line"><a name="l03039"></a><span class="lineno"> 3039</span>&#160;    cout&lt;&lt;<span class="stringliteral">&quot;This is red leader, Im going in&quot;</span>&lt;&lt;endl;</div>
@@ -3303,7 +3268,7 @@ $(document).ready(function(){initNavTree('iscam_8cpp_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e23cd859a1f4e7db4e1a186e629312a0.html">admb-code</a></li><li class="navelem"><b>iscam.cpp</b></li>
-    <li class="footer">Generated on Wed Sep 18 2013 14:56:18 for iSCAM by
+    <li class="footer">Generated on Thu Sep 19 2013 12:34:01 for iSCAM by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

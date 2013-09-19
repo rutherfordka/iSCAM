@@ -1,1 +1,6 @@
 \form#0:$ C = \frac{FN(1-exp(-Z))}{Z} $
+\form#1:$i$
+\form#2:$ C_i = \sum_j P(j) \frac{n_i \ell \alpha + \pi \alpha^2}{A^{(f)}} N_{a}^{(f)}P(j|a)^{(f)} $
+\form#3:$ P(j)$
+\form#4:$j$
+\form#5:$ R = \frac{s_o S}{(1+ b S)} $

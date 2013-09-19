@@ -197,8 +197,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calcObjectiveFunction
 <tr class="memitem:ae18479ac36c87e2fded761daa32b83ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae18479ac36c87e2fded761daa32b83ac"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>calcReferencePoints</b> ()</td></tr>
 <tr class="separator:ae18479ac36c87e2fded761daa32b83ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c65bf18cb86d9337271f2cbe480baf3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c65bf18cb86d9337271f2cbe480baf3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>simulationModel</b> (const long &amp;seed)</td></tr>
+<tr class="memitem:a2c65bf18cb86d9337271f2cbe480baf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmodel__parameters.html#a2c65bf18cb86d9337271f2cbe480baf3">simulationModel</a> (const long &amp;seed)</td></tr>
 <tr class="separator:a2c65bf18cb86d9337271f2cbe480baf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73359a757c04d33f74196decad999c89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73359a757c04d33f74196decad999c89"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSimulatedDataFile</b> (void)</td></tr>
@@ -237,7 +236,32 @@ static prevariable&#160;</td><td class="memItemRight" valign="bottom"><b>current
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="iscam_8htp_source.html#l00123">123</a> of file <a class="el" href="iscam_8htp_source.html">iscam.htp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2c65bf18cb86d9337271f2cbe480baf3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void model_parameters::simulationModel </td>
+          <td>(</td>
+          <td class="paramtype">const long &amp;&#160;</td>
+          <td class="paramname"><em>seed</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Purpose: This routine gets called from the PRELIMINARY_CALCS_SECTION if the user has specified the -sim command line option. The random seed is specifed at the command line. Author: Steven Martell Arguments: seed -&gt; a random seed for generating a unique, repeatable, sequence of random numbers to be used as observation and process errors. NOTES:</p>
+<ul>
+<li>This routine will over-write the observations in memory with simulated data, where the true parameter values are the initial values. Change the standard deviations of the random number vectors epsilon (observation error) or recruitment devs wt (process error).</li>
+<li>At the end of DATA_SECTION nyrs is modified by retro_yrs if -retro.</li>
+<li>Add back the retro_yrs to ensure same random number sequence for observation errors. PSUEDOCODE: 1) calculate selectivities to be used in the simulations. 2) calculate mortality rates (M), F is conditioned on catch. 3) generate random numbers for observation &amp; process errors. 4) calculate survivorship and stock-recruitment pars based on average M &amp; fec. 5) initialize state variables. 6) population dynamics with F conditioned on catch. 7) compute catch-at-age samples. 8) compute total catch. 9) compute the relative abundance indices. 10) write simulated data to file. TODO list: [] - March 9, 2013. Fix simulation model to generate consistent data when doing retrospective analyses on simulated datasets. [ ] - TODO: Stock-Recruitment model. [ ] - TODO: switch statement for catch-type to get Fishing mortality rate. [ ]</li>
+</ul>
+
+<p>Definition at line <a class="el" href="iscam_8cpp_source.html#l02330">2330</a> of file <a class="el" href="iscam_8cpp_source.html">iscam.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/Users/stevenmartell1/Documents/iSCAM-project/src/admb-code/<a class="el" href="iscam_8htp_source.html">iscam.htp</a></li>
 <li>/Users/stevenmartell1/Documents/iSCAM-project/src/admb-code/<a class="el" href="iscam_8cpp_source.html">iscam.cpp</a></li>
 </ul>
@@ -247,7 +271,7 @@ static prevariable&#160;</td><td class="memItemRight" valign="bottom"><b>current
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classmodel__parameters.html">model_parameters</a></li>
-    <li class="footer">Generated on Wed Sep 18 2013 14:56:19 for iSCAM by
+    <li class="footer">Generated on Thu Sep 19 2013 12:34:01 for iSCAM by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>

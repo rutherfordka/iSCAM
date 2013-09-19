@@ -122,23 +122,23 @@ $(document).ready(function(){initNavTree('msy_8h_source.html','');});
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_msy.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_msy.html" title="Msy class. ">Msy</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span>     m_sage;  </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span>     m_nage;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span>     m_ngear;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span>    m_FAIL;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span>     m_sage;     </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span>     m_nage;     </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span>     m_ngear;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span>    m_FAIL;     </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span>  m_ro;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span>  m_h;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">double</span>  m_M;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    dmatrix m_dM;   <span class="comment">// Age/sex specific natural mortality rates</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">double</span>  m_rho;  <span class="comment">// Fraction of total mortality that occurs before spawning.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    dmatrix m_dM;       </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">double</span>  m_rho;      </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    dvector m_wa;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    dmatrix m_dWa;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    dvector m_fa;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    dmatrix m_dFa;  <span class="comment">// sex specific fecundity</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    dmatrix m_V;    <span class="comment">// Selectivity for each gear (rows) at age (col)</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    d3_array m_d3_V; <span class="comment">// Selectivity for each gear, sex, age.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    dmatrix m_lz;   <span class="comment">// survivorship under fished conditions.</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    dmatrix m_dFa;      </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    dmatrix m_V;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    d3_array m_d3_V;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    dmatrix m_lz;       </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span>  m_phie;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">double</span>  m_phif;</div>
@@ -198,24 +198,24 @@ $(document).ready(function(){initNavTree('msy_8h_source.html','');});
 <div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="class_msy.html#afa4181c3b4dbd6d4567a4448440989f7">  113</a></span>&#160;    <span class="keywordtype">double</span>    <a class="code" href="class_msy.html#afa4181c3b4dbd6d4567a4448440989f7">getSpr</a>() { <span class="keywordflow">return</span> m_spr;     }  </div>
 <div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="class_msy.html#a921174b609f61f60052f3a020571d943">  114</a></span>&#160;    dmatrix    <a class="code" href="class_msy.html#a921174b609f61f60052f3a020571d943">getLz</a>() { <span class="keywordflow">return</span> m_lz;      }  </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// Setters</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> set_ro(<span class="keywordtype">double</span> ro)   { m_ro = ro; }</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span>  set_m(<span class="keywordtype">double</span> m)    { m_M  = m;  }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span>  set_h(<span class="keywordtype">double</span>&amp; h)   { m_h  = h;  }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> set_fa(dvector&amp; fa) { m_fa = fa; }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> set_wa(dvector&amp; wa) { m_wa = wa; }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span>  set_V(dmatrix&amp; V)  { m_V  = V;  }</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="class_msy.html#a3b87313c8a47426eb6c6a37ed8a3dd2f">  118</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_msy.html#a3b87313c8a47426eb6c6a37ed8a3dd2f" title="set unfished recruits ">set_ro</a>(<span class="keywordtype">double</span> ro)   { m_ro = ro; } </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="class_msy.html#a21933aa09b85e22892f3e843e520dd47">  119</a></span>&#160;    <span class="keywordtype">void</span>  <a class="code" href="class_msy.html#a21933aa09b85e22892f3e843e520dd47" title="set natural mortality ">set_m</a>(<span class="keywordtype">double</span> m)    { m_M  = m;  } </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="class_msy.html#a20a5db29c282583309683bfadd6dd9b2">  120</a></span>&#160;    <span class="keywordtype">void</span>  <a class="code" href="class_msy.html#a20a5db29c282583309683bfadd6dd9b2" title="set steepness ">set_h</a>(<span class="keywordtype">double</span>&amp; h)   { m_h  = h;  } </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="class_msy.html#a4c9d2aa122e2759dcab2ed198765f4b3">  121</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_msy.html#a4c9d2aa122e2759dcab2ed198765f4b3" title="set vector or mature weight-at-age ">set_fa</a>(dvector&amp; fa) { m_fa = fa; } </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="class_msy.html#a962fd79274e9bb30fb948783db5d60ae">  122</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_msy.html#a962fd79274e9bb30fb948783db5d60ae" title="set vector of weight-at-age ">set_wa</a>(dvector&amp; wa) { m_wa = wa; } </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="class_msy.html#a8bb270188d35357500797930de80a949">  123</a></span>&#160;    <span class="keywordtype">void</span>  <a class="code" href="class_msy.html#a8bb270188d35357500797930de80a949" title="set matrix of selectivities ">set_V</a>(dmatrix&amp; V)  { m_V  = V;  } </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Member functions</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span>        calc_phie();</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span>        calc_phie(<span class="keywordtype">double</span>&amp; _m, dvector&amp; _fa);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span>        calc_phie(<span class="keyword">const</span> dmatrix&amp; _m, <span class="keyword">const</span> dmatrix&amp; _fa);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span>          calc_bo(<span class="keywordtype">double</span>&amp; _m, dvector&amp; _va);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span>          calc_bo(<span class="keyword">const</span> dmatrix&amp; _m, <span class="keyword">const</span> dmatrix&amp; _fa);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> calc_equilibrium(<span class="keyword">const</span> dvector&amp; fe);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span>        <a class="code" href="class_msy.html#a0b367cfd45ce3145405185c634b533cb" title="calculate unfished Eggs per recruit ">calc_phie</a>();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span>        <a class="code" href="class_msy.html#a0b367cfd45ce3145405185c634b533cb" title="calculate unfished Eggs per recruit ">calc_phie</a>(<span class="keywordtype">double</span>&amp; _m, dvector&amp; _fa);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span>        <a class="code" href="class_msy.html#a0b367cfd45ce3145405185c634b533cb" title="calculate unfished Eggs per recruit ">calc_phie</a>(<span class="keyword">const</span> dmatrix&amp; _m, <span class="keyword">const</span> dmatrix&amp; _fa);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span>          <a class="code" href="class_msy.html#a7868936cb7f670d4f72c8a9d20361077" title="calculate unfished spawning biomass ">calc_bo</a>(<span class="keywordtype">double</span>&amp; _m, dvector&amp; _va);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span>          <a class="code" href="class_msy.html#a7868936cb7f670d4f72c8a9d20361077" title="calculate unfished spawning biomass ">calc_bo</a>(<span class="keyword">const</span> dmatrix&amp; _m, <span class="keyword">const</span> dmatrix&amp; _fa);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_msy.html#a3219036dc205faab5c0638056f741484" title="Calculate equlibrium values conditional on fe. ">calc_equilibrium</a>(<span class="keyword">const</span> dvector&amp; fe);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span>  <a class="code" href="class_msy.html#a4aa37df18c0662684490e7f590cf8fee" title="Equilibrium model conditional on a vector of fishing mortality rates. ">calcEquilibrium</a>(<span class="keyword">const</span> dvector&amp; fe);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span>         <a class="code" href="class_msy.html#a78de637cea0563b98c34f517efb61ae4" title="Use Newton-Raphson method to get Fmsy. ">get_fmsy</a>(dvector&amp; fe);</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span>         <a class="code" href="class_msy.html#a78de637cea0563b98c34f517efb61ae4" title="Use Newton-Raphson method to get Fmsy. ">get_fmsy</a>(dvector&amp; fe, dvector&amp; ak);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span>            print();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span>            <a class="code" href="class_msy.html#aa11d3fb07657bf676fc33ae34f19f165" title="Print results of msy class. ">print</a>();</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
@@ -226,7 +226,7 @@ $(document).ready(function(){initNavTree('msy_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e23cd859a1f4e7db4e1a186e629312a0.html">admb-code</a></li><li class="navelem"><b>msy.h</b></li>
-    <li class="footer">Generated on Wed Sep 18 2013 14:56:18 for iSCAM by
+    <li class="footer">Generated on Thu Sep 19 2013 12:34:01 for iSCAM by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.4 </li>
   </ul>
