@@ -10,6 +10,7 @@
 *.htp
 *.obj
 variance
+dist/
 
 # iSCAM output
 *.psv
