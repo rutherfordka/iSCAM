@@ -108,7 +108,9 @@ DATA_SECTION
 
 	!! BaseFileName   = stripExtension(ControlFile);
 	!! ReportFileName = BaseFileName + adstring(".rep");
-	!! cout<<BaseFileName<<endl;
+	//!! cout<<BaseFileName<<endl;
+	!! cout<<"Datafile is "<<DataFile<<endl;
+	!! cout<<"Controlfile is "<<ControlFile<<endl;
 	
 	
 	// |---------------------------------------------------------------------------------|
@@ -122,6 +124,7 @@ DATA_SECTION
 	// | 5) start year for recruitment period (not implemented yet)
 	// | 6)   end year for recruitment period (not implemented yet)
 	// |
+	//!! ad_comm::change_datafile_name(ProjectFileControl);
 	!! ad_comm::change_datafile_name(ProjectFileControl);
 	init_int n_tac;
 	init_vector tac(1,n_tac);
@@ -3248,7 +3251,7 @@ REPORT_SECTION
 	int i,j,k;
 	report<<DataFile<<endl;
 	report<<ControlFile<<endl;
-	report<<ProjectFileControl<<endl;
+	//report<<ProjectFileControl<<endl;
 	REPORT(f);
 	REPORT(nlvec);
 	REPORT(ro);
