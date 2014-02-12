@@ -14,7 +14,7 @@
 # | .FIGUREDIR <- Directory for saving figures.
 # | .RFILES    <- List of R functions to source from the lib directory.
 require(ggplot2)
-.PWD        <- "~/Documents/iSCAM-project/src/R"
+.PWD        <- getwd()
 .FIGUREDIR  <- "../FIGS/"
 .RFILES     <- list.files("./lib/",pattern="\\.[Rr]$")
 .VIEWTRCK   <- "iSCAMViewTracker.txt"
