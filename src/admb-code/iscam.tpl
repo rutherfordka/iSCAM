@@ -3771,11 +3771,10 @@ GLOBALS_SECTION
 	#include <time.h>
 	#include <string.h>
 	#include <contrib.h>
-	// #include <statsLib.h>
 	#include "msy.cpp"
 	//#include "logistic_normal.h"
 	#include "LogisticNormal.h"
-	//#include "stats.cxx"
+	#include "LogisticNormal.cpp" // Gotta fix this hack
 	#include "baranov.cxx"
 	time_t start,finish;
 	long hour,minute,second;
