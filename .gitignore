@@ -6,10 +6,21 @@
 *.exe
 *.o
 *.so
+*.cpp
+*.htp
+*.obj
+variance
 
 # iSCAM output
 *.psv
 *.cor
+*.cov
+*.dep
+*.eql
+*.hes
+*.tmp
+*.rpt
+*.bar
 *.rep
 *.par
 *.std
