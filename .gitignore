@@ -35,6 +35,7 @@ dist/
 *.p[0-9]*
 *.r[0-9]*
 *.b[0-9]*
+*.res
 
 # Latex Stuff
 *.aux
