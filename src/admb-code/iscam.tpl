@@ -706,7 +706,14 @@ DATA_SECTION
 			else if( !h ) 
 			{
 					//cout<<h<<endl;
+<<<<<<< HEAD
 
+=======
+<<<<<<< Temporary merge branch 1
+=======
+				
+>>>>>>> Temporary merge branch 2
+>>>>>>> cgrandin/IPHC-developer
 				for(int h=1;h<=nsex;h++)
 				{
 					ig                   = pntr_ags(f,g,h);
@@ -4950,18 +4957,26 @@ GLOBALS_SECTION
 	#include "lib/baranov.h"
   #include "lib/LogisticNormal.h"
 	#include "Selex.h"
+<<<<<<< HEAD
 
   #if defined _WIN32 || defined _WIN64
 
+=======
+	#if defined _WIN32 || defined _WIN64
+>>>>>>> cgrandin/IPHC-developer
 	#include "lib/msy.cpp"
 	#include "lib/baranov.cpp"
 	#include "lib/LogisticNormal.cpp"
 	#include "lib/LogisticStudentT.cpp"
 	#include "OpMod.h"
+<<<<<<< HEAD
 
   #endif
 
 
+=======
+  #endif
+>>>>>>> cgrandin/IPHC-developer
 	ivector getIndex(const dvector& a, const dvector& b)
 	{
 		int i,j,n;
