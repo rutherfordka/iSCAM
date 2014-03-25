@@ -14,6 +14,7 @@
 *.obj
 variance
 dist/
+*.BAT
 
 # iSCAM output
 *.psv
@@ -39,6 +40,10 @@ dist/
 *.r[0-9]*
 *.b[0-9]*
 *.res
+*.ecm
+*.hst
+*.mc2
+*.mcm
 
 # Latex Stuff
 *.aux
@@ -91,7 +96,11 @@ dist/
 *.sqlite
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> rforrest/IPHC-developer
 #Doxygen directory#
 html/
 
@@ -99,7 +108,11 @@ html/
 
 
 
+<<<<<<< HEAD
 >>>>>>> smartell/IPHC-developer
+=======
+
+>>>>>>> rforrest/IPHC-developer
 # OS generated files #
 ######################
 .DS_Store
