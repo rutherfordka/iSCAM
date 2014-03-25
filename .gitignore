@@ -90,6 +90,16 @@ dist/
 *.sql
 *.sqlite
 
+<<<<<<< HEAD
+=======
+#Doxygen directory#
+html/
+
+#Jekyll directory
+
+
+
+>>>>>>> smartell/IPHC-developer
 # OS generated files #
 ######################
 .DS_Store
